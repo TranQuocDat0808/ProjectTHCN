@@ -1,0 +1,307 @@
+.books-container {
+    padding: 3rem;
+    flex : 1 1 auto;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.books-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    width: 100%;            /* Thêm dòng này */
+    max-width: 98vw;        /* Hoặc tăng max-width nếu có */
+}
+
+.books-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4299e1, #48bb78, #ed8936);
+    border-radius: 16px 16px 0 0;
+}
+
+.books-header h1 {
+    color: #2d3748;
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+    margin-left: 35px;
+    margin-top: -10px;
+}
+
+.books-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #4299e1, #48bb78);
+    border-radius: 2px;
+}
+
+.category-filter select {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.category-filter select:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 cột trên mỗi dòng */
+    gap: 25px;
+    padding: 5px;
+}
+
+.book-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    position: relative;
+}
+
+.book-image {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Fixed height for images */
+    overflow: hidden;
+    
+}
+
+.book-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.book-info {
+    padding: 1rem;
+    height: 100px;
+    position: relative;
+    text-align: center;
+}
+
+.book-info h3 {
+    color: #2d3748;
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 8px;
+    height: 40px;
+    font-weight: bold;
+    margin-top: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.book-info .author,
+.book-info .category {
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.borrow-btn {
+    width: calc(100% - 2rem);
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.85rem;
+}
+
+.borrow-btn:hover {
+    background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.3);
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    margin: 2rem 0;
+}
+
+.loading {
+    color: #4a5568;
+    font-size: 1.2rem;
+}
+
+.error {
+    color: #e53e3e;
+    font-size: 1.2rem;
+    border: 1px solid rgba(229, 62, 62, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .books-container {
+        padding: 1.5rem;
+        margin-left: 0;
+    }
+
+    .books-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+.no-books {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.back-to-books {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #4299e1;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.back-to-books:hover {
+    background: #3182ce;
+}
+/* Thêm vào cuối file */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.pagination-button {
+    min-width: 40px;
+    height: 40px;
+    padding: 0 15px;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background: #f0f9ff;
+    border-color: #60a5fa;
+    color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.pagination-button.active {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Style cho nút Trước/Sau */
+.pagination-button.prev,
+.pagination-button.next {
+    padding: 0 25px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.pagination-button.prev:hover:not(:disabled),
+.pagination-button.next:hover:not(:disabled) {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+.pagination-button.prev:disabled,
+.pagination-button.next:disabled {
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+    opacity: 0.7;
+    box-shadow: none;
+}
+

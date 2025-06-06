@@ -1,0 +1,74 @@
+/* Container chính */
+.home-container {
+    text-align: center;
+    padding: 40px;
+}
+
+/* Banner chào mừng */
+.home-banner {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.home-banner h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.home-banner p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Nút khám phá */
+.explore-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 18px;
+    color: #2c3e50;
+    background-color: #f1c40f;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.explore-button:hover {
+    background: #e2b607;
+    transform: scale(1.05);
+}
+
+/* Danh mục sách */
+.categories h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Danh sách danh mục */
+.category-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Mục danh mục */
+.category-item {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    background: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.category-item:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}

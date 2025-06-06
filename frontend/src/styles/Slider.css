@@ -1,0 +1,157 @@
+.slider {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    color: white;
+    border-radius: 12px;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.slide-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.slide-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #fff, #e2e8f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    color: white;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-button:hover {
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.9), rgba(44, 82, 130, 0.9));
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.prev {
+    left: 2rem;
+}
+
+.next {
+    right: 2rem;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: white;
+    border-color: rgba(66, 153, 225, 0.5);
+    box-shadow: 0 0 10px rgba(66, 153, 225, 0.3);
+}
+
+@media (max-width: 768px) {
+    .slider {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 350px;
+    }
+
+    .slide-content {
+        left: 5%;
+        right: 5%;
+        bottom: 15%;
+    }
+
+    .slide-content h2 {
+        font-size: 2rem;
+    }
+
+    .slider-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+.small-form {
+    width: 300px; /* Đặt chiều rộng form nhỏ hơn */
+    max-width: 100%; /* Đảm bảo không vượt quá kích thước màn hình */
+    padding: 10px; /* Giảm khoảng cách bên trong */
+    font-size: 14px; /* Giảm kích thước chữ */
+    border: 1px solid #ccc; /* Viền nhẹ */
+    border-radius: 5px; /* Bo góc */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng nhẹ */
+}

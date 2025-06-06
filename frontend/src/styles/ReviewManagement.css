@@ -1,0 +1,51 @@
+.review-management {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.review-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.review-list th, .review-list td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.review-list th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.review-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.review-list tr:hover {
+    background-color: #f1f1f1;
+}
+
+.delete-btn {
+    padding: 0.5rem 1rem;
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c53030;
+}
